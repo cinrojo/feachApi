@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual</title>
+    <!-- Bootstrap CSS para estilos responsivos y componentes -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CSS para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Otros enlaces CSS y meta tags -->
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <!-- Nombre o logo de la tienda -->
+        <a class="navbar-brand" href="#">Tienda Virtual</a>
+        <!-- Botón para colapsar la barra de navegación en pantallas pequeñas -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Contenido colapsable de la barra de navegación -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Lista de categorías, se llenará dinámicamente -->
+            <ul class="navbar-nav mr-auto" id="categories"></ul>
+            <!-- Icono del carrito de compras con el contador -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showCart()">
+                        <i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-4">
+        <!-- Título de la sección de productos -->
+        <h2 class="section-title my-4">Productos</h2>
+        <!-- Contenedor de productos, se llenará dinámicamente -->
+        <div id="products" class="row"></div>
+        
+        <!-- Título de la sección de detalles del producto, inicialmente oculto -->
+        <h2 class="section-title my-4" id="product-details-title" style="display: none;">Detalle del Producto</h2>
+        <!-- Contenedor de detalles del producto, inicialmente oculto -->
+        <div id="product-details" class="mb-4" style="display: none;"></div>
+        
+        <!-- Modal del carrito de compras -->
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- Título del modal -->
+                        <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                        <!-- Botón para cerrar el modal -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Lista de productos en el carrito -->
+                        <ul id="cart-items" class="list-group mb-2"></ul>
+                        <!-- Total de la compra -->
+                        <div class="alert alert-info">Total: $<span id="total-price">0</span></div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- Botón para cerrar el modal -->
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts de Bootstrap y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Archivo JavaScript personalizado -->
+    <script src="app.js"></script>
+</body>
+</html>
